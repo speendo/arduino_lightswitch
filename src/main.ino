@@ -3,9 +3,10 @@
 #define switchTime 500
 #define sleepAfterSwitch 2000
 
-#define relayPin 4
-#define sensorPin 7
+#define relayPin 7
+#define sensorPin 5
 
+#define sensorPinUpState false
 #define relayPinUpSwitchesOn false
 
 bool lastSensorState;
@@ -55,8 +56,10 @@ void performActions() {
 }
 
 bool checkSensor() {
-  // Sensor returns low when sensing something...
-  return !(digitalRead(sensorPin));
+//  Serial.print("x = " + String(digitalRead(relayPin)));
+//  Serial.print(", c = " + String(relayPinUpSwitchesOn));
+//  Serial.println(" => " + String(digitalRead(relayPin) ^ !relayPinUpSwitchesOn));
+  return (digitalRead(sensorPin) ^ !sensorPinUpState);
 }
 
 void lightSwitch() {
