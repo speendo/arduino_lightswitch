@@ -1,6 +1,6 @@
 #include "Arduino.h"
 
-#define switchTime 500
+#define switchTime 200
 #define sleepAfterSwitch 2000
 
 #define relayPin 7
